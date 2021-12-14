@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "eslint src/** --fix",
+    "test:jest": "jest",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,6 @@
   },
   "homepage": "https://github.com/ivanfigueiredo/nodejs-avancado#readme",
   "devDependencies": {
-    "@types/jest": "^27.0.3",
     "@types/node": "^16.11.12",
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.6.0",
@@ -29,9 +30,9 @@
     "eslint-plugin-promise": "^5.2.0",
     "git-commit-msg-linter": "^3.2.8",
     "husky": "^7.0.4",
-    "jest": "^27.4.4",
     "lint-staged": "^12.1.2",
     "ts-jest": "^27.1.1",
+    "ts-node": "^10.4.0",
     "typescript": "^4.5.3"
   }
 }
