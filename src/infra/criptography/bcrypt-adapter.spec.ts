@@ -25,4 +25,11 @@ describe('', () => {
     const hash = await sut.encrypt('any_value')
     expect(hash).toBe('hash')
   })
+
+  test('Should return a hash on success', async () => {
+    const sut = makeSult()
+    jest.spyOn(bcrypt, 'hash').mockImplementationOnce(() => { throw new Error() })
+    const promise = sut.encrypt('any_value')
+    await expect(promise).rejects.toThrow()
+  })
 })
