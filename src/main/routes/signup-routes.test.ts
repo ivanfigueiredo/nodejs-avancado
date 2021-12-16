@@ -4,7 +4,7 @@ import { MongoHelper } from '../../infra/db/mongodb/helper/mongo-helper'
 
 describe('Signup Routes', () => {
   beforeAll(async () => {
-    await MongoHelper.connect()
+    await MongoHelper.connect(process.env.MONGO_URL as string)
   })
 
   afterAll(async () => {
