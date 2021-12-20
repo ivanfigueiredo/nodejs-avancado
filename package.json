@@ -6,7 +6,7 @@
   "scripts": {
     "start": "sucrase-node src/main/server.ts",
     "test": "eslint src/** --fix",
-    "test:jest": "jest --passWithNoTests --silent --noStackTrace --runInBand",
+    "test:jest": "jest --passWithNoTests --silent --noStackTrace --no-cache --runInBand",
     "test:unit": "npm run test:jest -- --watch -c jest-unit-config.js",
     "test:integration": "npm run test:jest -- --watch -c jest-integration-config.js",
     "test:ci": "npm run test:jest -- --coverage",
