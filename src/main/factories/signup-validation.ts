@@ -7,7 +7,8 @@ import { EmailValidation } from '../../presentation/helpers/validators/email-val
 
 export const makeSignUpValidation = (): ValidationComposite => {
   const validations: Validation[] = []
-  for (const field of ['name', 'email', 'password', 'passwordConfirmation']) {
+  const requiredFields = ['name', 'email', 'password', 'passwordConfirmation']
+  for (const field of requiredFields) {
     validations.push(new RequiredFieldsValidation(field))
   }
   validations.push(new CompareFieldsValidation('password', 'passwordConfirmation'))
