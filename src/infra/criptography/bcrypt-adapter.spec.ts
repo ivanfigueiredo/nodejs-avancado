@@ -30,7 +30,7 @@ describe('', () => {
     expect(hash).toBe('hash')
   })
 
-  test('Should return a hash on success', async () => {
+  test('Should return a hash throws', async () => {
     const sut = makeSult()
     jest.spyOn(bcrypt, 'hash').mockImplementationOnce(() => { throw new Error() })
     const promise = sut.hash('any_value')
@@ -55,5 +55,12 @@ describe('', () => {
     jest.spyOn(bcrypt, 'compare').mockImplementationOnce(async () => false)
     const isValid = await sut.compare('any_value', 'any_hash')
     expect(isValid).toBe(false)
+  })
+
+  test('Should return a compare throws', async () => {
+    const sut = makeSult()
+    jest.spyOn(bcrypt, 'compare').mockImplementationOnce(() => { throw new Error() })
+    const promise = sut.compare('any_value', 'any_hash')
+    await expect(promise).rejects.toThrow()
   })
 })
