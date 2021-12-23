@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/main/server.js",
     "build": "rimraf dist && tsc",
-    "dev": "sucrase-node src/main/server.ts",
+    "up": "sucrase-node src/main/server.ts",
     "test": "eslint src/** --fix",
     "test:jest": "jest --passWithNoTests --silent --noStackTrace --no-cache --runInBand",
     "test:unit": "npm run test:jest -- --watch -c jest-unit-config.js",
@@ -46,7 +46,6 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.1.2",
     "rimraf": "^3.0.2",
-    "sucrase": "^3.20.3",
     "supertest": "^6.1.6",
     "ts-jest": "^27.1.1",
     "ts-node": "^10.4.0",
@@ -61,6 +60,6 @@
     "validator": "^12.1.0"
   },
   "engines": {
-    "node": "14.x"
+    "node": "16.x"
   }
 }
