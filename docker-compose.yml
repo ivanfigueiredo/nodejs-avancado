@@ -5,7 +5,7 @@
         image: node:14
         working_dir: /usr/src/clean-node-api
         restart: always
-        command: bash -c "npm install --only=prod && npm start"
+        command: bash -c "npm install --only=prod && npm run debug"
         environment:
           - PORT=5050
           - MONGO_URL=mongodb://mongo:27017/clean-node-api
