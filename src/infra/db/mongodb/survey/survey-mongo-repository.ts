@@ -1,4 +1,4 @@
-import { LoadSurveysRepository } from './../../../../data/protocols/db/survey/load-surveys-repository';
+import { LoadSurveysRepository } from './../../../../data/protocols/db/survey/load-surveys-repository'
 import { AddSurveyRepository } from '../../../../data/protocols/db/survey/add-survey-repository'
 import { AddSurveyModel } from '../../../../domain/usecases/add-survey'
 import { MongoHelper } from '../helper/mongo-helper'
