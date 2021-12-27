@@ -4,6 +4,7 @@ import { MongoHelper } from '../../infra/db/mongodb/helper/mongo-helper'
 import { Collection } from 'mongodb'
 import { sign } from 'jsonwebtoken'
 import env from '../../main/config/env'
+import MockDate from 'mockdate'
 
 let surveyCollection: Collection
 let accountCollection: Collection
