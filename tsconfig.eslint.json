@@ -1,15 +1,4 @@
 {
-    "compilerOptions": {
-        "outDir": "dist",
-        "module": "commonjs",
-        "target": "es2019",
-        "esModuleInterop": true
-    },
-    "include": [
-        "src"
-    ],
-    "exclude": [
-        "**/*.spec.ts",
-        "**/*.test.ts"
-    ]
+    "extends": "./tsconfig.json",
+    "exclude": []
 }
