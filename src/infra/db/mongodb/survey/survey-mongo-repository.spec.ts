@@ -5,6 +5,10 @@ import { SurveyMongoRepository } from './survey-mongo-repository'
 
 let surveyCollection: Collection
 
+const makeSut = (): SurveyMongoRepository => {
+  return new SurveyMongoRepository()
+}
+
 const makeFakeRequest = (): AddSurveyModel => ({
   question: 'any_question',
   answers: [{
@@ -30,15 +34,13 @@ describe('Survey Mongo Repository', () => {
     await surveyCollection.deleteMany({})
   })
 
-  const makeSut = (): SurveyMongoRepository => {
-    return new SurveyMongoRepository()
-  }
-
-  test('Should add a survey on success', async () => {
-    const sut = makeSut()
-    const httpRequest = makeFakeRequest()
-    await sut.add(httpRequest)
-    const survey = await surveyCollection.findOne({ question: 'any_question' })
-    expect(survey).toBeTruthy()
+  describe('add()', () => {
+    test('Should add a survey on success', async () => {
+      const sut = makeSut()
+      const httpRequest = makeFakeRequest()
+      await sut.add(httpRequest)
+      const survey = await surveyCollection.findOne({ question: 'any_question' })
+      expect(survey).toBeTruthy()
+    })
   })
 })
