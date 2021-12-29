@@ -1,6 +1,6 @@
 import { SaveSurveyResultRepository } from './db-save-survey-result-protocols'
 import { DbSaveSurveyResult } from './db-save-survey-result'
-import { throwError, mockSaveSurveyResultParams } from '../../../../domain/test/'
+import { throwError, mockSaveSurveyResultParams, mockSurveyResultModel } from '../../../../domain/test/'
 import { mockSaveSurveyResultRepository } from '../../../test/'
 import MockDate from 'mockdate'
 
@@ -31,7 +31,7 @@ describe('DbSaveSurveyResult UseCase', () => {
     const { sut, saveSurveyResultRepositoryStub } = makeSut()
     const saveSpy = jest.spyOn(saveSurveyResultRepositoryStub, 'save')
     const surveyResultData = mockSaveSurveyResultParams()
-    await sut.save(surveyResultData)
+    await sut.save(mockSaveSurveyResultParams())
     expect(saveSpy).toHaveBeenCalledWith(surveyResultData)
   })
 
@@ -45,6 +45,6 @@ describe('DbSaveSurveyResult UseCase', () => {
   test('Should return Survey on success', async () => {
     const { sut } = makeSut()
     const surveyResult = await sut.save(mockSaveSurveyResultParams())
-    expect(surveyResult).toEqual(mockSaveSurveyResultParams())
+    expect(surveyResult).toEqual(mockSurveyResultModel())
   })
 })

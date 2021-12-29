@@ -16,10 +16,13 @@ const makeFakeRequest = (): HttpRequest => ({
 })
 
 const makeFakeSurveyResult = (): SurveyResultModel => ({
-  id: 'valid_id',
-  surveyId: 'valild_survey_id',
-  accountId: 'valid_account_id',
-  answer: 'valid_answer',
+  surveyId: 'any_survey_id',
+  question: 'any_question',
+  answers: [{
+    answer: 'any_answer',
+    count: 1,
+    percent: 50
+  }],
   date: new Date()
 })
 
