@@ -1,2 +1,2 @@
 export * from './mongo-helper'
-export * from './quert-builder'
+export * from './query-builder'
