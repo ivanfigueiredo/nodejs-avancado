@@ -1,6 +1,6 @@
-import { makeDbSaveSurveyResult } from './../../../usecases/survey-result/save-survey-result/db-save-survey-result-factory'
+import { makeDbSaveSurveyResult } from '../../../usecases/survey-result/save-survey-result/db-save-survey-result-factory'
 import { makeDbLoadSurveysById } from '../../../usecases/survey/load-survey-by-id/db-load-surveys-by-id-factory'
-import { SaveSurveyResultController } from './../../../../../presentation/controllers/survey-result/save-survey-result/save-survey-result-controller'
+import { SaveSurveyResultController } from '../../../../../presentation/controllers/survey-result/save-survey-result/save-survey-result-controller'
 import { Controller } from '../../../../../presentation/protocols'
 import { makeLogControllerDecorator } from '../../../decorators/log-controller-decorator-factory'
 
