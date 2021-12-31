@@ -1,8 +1,7 @@
 import { mockSurveyModel } from './../../../../domain/test/mock-survey'
-import { LoadSurveyById } from './../../../../domain/usecases/survey/load-survey-by-id'
 import { SurveyModel } from './../../../../domain/models/survey'
 import { LoadSurveyResultController } from './load-survey-result-controller'
-import { HttpRequest } from './load-survey-result-controller-protocols'
+import { HttpRequest, LoadSurveyById } from './load-survey-result-controller-protocols'
 
 const makeFakeRequest = (): HttpRequest => ({
   params: {
@@ -10,15 +9,32 @@ const makeFakeRequest = (): HttpRequest => ({
   }
 })
 
+interface SutTypes {
+  sut: LoadSurveyResultController
+  loadSurveyByIdStub: LoadSurveyById
+}
+
+const makeSut = (): SutTypes => {
+  const loadSurveyByIdStub = mockLoadSurveyById()
+  const sut = new LoadSurveyResultController(loadSurveyByIdStub)
+  return {
+    sut,
+    loadSurveyByIdStub
+  }
+}
+
+const mockLoadSurveyById = (): LoadSurveyById => {
+  class LoadSurveyByIdStub implements LoadSurveyById {
+    async loadById (id: string): Promise<SurveyModel> {
+      return new Promise(resolve => resolve(mockSurveyModel()))
+    }
+  }
+  return new LoadSurveyByIdStub()
+}
+
 describe('LoadSurveyResult Controller', () => {
   test('Should call LoadSurveyById with correct value', async () => {
-    class LoadSurveyByIdStub implements LoadSurveyById {
-      async loadById (id: string): Promise<SurveyModel> {
-        return new Promise(resolve => resolve(mockSurveyModel()))
-      }
-    }
-    const loadSurveyByIdStub = new LoadSurveyByIdStub()
-    const sut = new LoadSurveyResultController(loadSurveyByIdStub)
+    const { sut, loadSurveyByIdStub } = makeSut()
     const loadByIdSpy = jest.spyOn(loadSurveyByIdStub, 'loadById')
     await sut.handle(makeFakeRequest())
     expect(loadByIdSpy).toHaveBeenCalledWith('any_id')
