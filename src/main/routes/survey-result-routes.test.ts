@@ -31,7 +31,7 @@ describe('Survey Routes', () => {
         .send({
           answer: 'any_answer'
         })
-        .expect(404)
+        .expect(403)
     })
 
     test('Should return 200 on save survey result with accessToken', async () => {
@@ -65,7 +65,7 @@ describe('Survey Routes', () => {
         .send({
           answer: 'Answer 1'
         })
-        .expect(404)
+        .expect(403)
     })
   })
 })
