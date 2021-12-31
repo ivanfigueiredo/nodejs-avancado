@@ -23,6 +23,7 @@
         "@typescript-eslint/no-unused-vars": "off",
         "no-useless-constructor": "off",
         "node/no-path-concat": "off",
-        "@typescript-eslint/prefer-namespace-keyword": "off"
+        "@typescript-eslint/prefer-namespace-keyword": "off",
+        "@typescript-eslint/restrict-template-expressions": "off"
     }
 }
