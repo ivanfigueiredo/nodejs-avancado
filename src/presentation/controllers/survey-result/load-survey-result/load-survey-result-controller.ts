@@ -1,5 +1,5 @@
 import { InvalidParamError } from './../../../errors/invalid-param-error'
-import { forbidden } from './../../../helpers/http/http-helper';
+import { forbidden } from './../../../helpers/http/http-helper'
 import { Controller, HttpRequest, HttpResponse, LoadSurveyById } from './load-survey-result-controller-protocols'
 
 export class LoadSurveyResultController implements Controller {
